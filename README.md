@@ -25,7 +25,7 @@ chmod +x log-archive.sh
 
 ## Alternative
 
-1. Clone the repository or copy the content of (Log-Archive)[log-archive.sh]
+1. Clone the repository or copy the content of [Log-Archive](log-archive.sh)
 
 ```
 git clone git@github.com:reneb1404/log-archive-tool.git
@@ -47,4 +47,4 @@ bash log-archive.sh {PathToFolderToArchive}
 
 This project is based on the DevOps-Roadmap.
 
-More details can be found (here)[https://roadmap.sh/projects/log-archive-tool]
+More details can be found [here](https://roadmap.sh/projects/log-archive-tool)
