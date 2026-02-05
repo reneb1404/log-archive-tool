@@ -2,18 +2,20 @@
 
 #### Read Argument passed when executing ####
 
-directoryName=$1
+logDirectory=$1
 
 #### Check if argument was provided, exit if not ####
 
-if [[ $directoryName == "" ]]
+if [[ $logDirectory == "" ]]
 then
     echo "Please provide the log directory name as an argument"
     exit 1
 fi
 
 #### Output where the logs will be stored ####
-#### Project folder so sudo is not required ###ä
+#### Project folder so sudo is not required ####
+
+directoryName="archived_logs"
 
 echo -e "Archived logs are stored in $(pwd)/$directoryName"
 
@@ -22,23 +24,30 @@ echo -e "Archived logs are stored in $(pwd)/$directoryName"
 date=$(date +%y%m%d)
 time=$(date +%H%M%S)
 
-#### Set the logfile-name ####
+#### Set the Logfile-name ####
 
 logName="logs_archive_$date_$time.tar.gz"
 
-#### check if logDirectory exists, if not create it
+#### Check if logDirectory exists, or create ####
 
-logDirectory="$(pwd)/$directoryName"
+logDirectoryPath="$(pwd)/$directoryName"
 
-if [ ! -d "$logDirectory" ]
+if [ ! -d "$logDirectoryPath" ]
 then
-    mkdir $logDirectory
+    mkdir "$logDirectoryPath"
 fi
 
-#### set the log-path ####
+#### Set the log-path ####
+logPath="$logDirectoryPath/$logName"
 
-logPath="$logDirectory/$logName"
 
-#### Use tar and gzip to compress the logs ####
+tar --create --verbose --gzip --file=$logPath $logDirectory
 
-tar --create --verbose --gzip --file=$logPath test
+#### Write own log ####
+
+#### Get timestamp in user-friendly format ####
+timestamp=$(date +"%Y-%m-%d %H:%M:%S")
+
+
+#### write to file
+echo "$timestamp | $logName | $logDirectory" >> archive.log
