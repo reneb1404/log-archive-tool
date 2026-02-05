@@ -42,6 +42,7 @@ bash log-archive.sh {PathToFolderToArchive}
 
 - Accept multiple folders e.g. /var/log and archive logs with proper structure
 - Improve logging
+- Implemenet UI / WebApp
 
 # Other
 
