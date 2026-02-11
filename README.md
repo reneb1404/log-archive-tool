@@ -4,7 +4,7 @@ CLI tool to archive logs on a set schedule by comrepssing them and storing them 
 
 # How to use it?
 
-1. Clone the repository or copy the content of (Log-Archive)[log-archive.sh]
+1. Clone the repository or copy the content of [Log-Archive](log-archive.sh)
 
 ```
 git clone git@github.com:reneb1404/log-archive-tool.git
